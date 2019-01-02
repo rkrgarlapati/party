@@ -1,0 +1,35 @@
+server:
+  port: 8200
+
+management:
+  contextPath: /devops
+  port : 8201
+
+rest:
+  config:
+    max-page-size: 50
+    default-page-size: 10
+
+http:
+  headers:
+    maxAgeInSeconds: 31536000
+
+spring:
+  application:
+    name: partymanager
+
+azure:
+  cosmosdb:
+    uri: https://iconnect.documents.azure.com:443/
+    key: EW0vW0E4DZ4cbcHCVo7nGJiaU1A5uwMsy9kStm8QtNhD9MPNH7mMIqzYfOqjnCVPrJ5006Z027PGgTu6jz2T5Q==
+    database: iconnect-party
+
+accessLogValve:
+  directory: C:/Logging/${spring.application.name}
+  pattern: date time c-ip s-ip s-dns cs-method cs-uri-stem cs-uri-query sc-status bytes time-taken cs(User-Agent) cs(Referer) cs(HOST)
+  suffix: .log
+  prefix: ex
+  rotatable: true
+  fileDateFormat: yyMMdd.HH
+
+
